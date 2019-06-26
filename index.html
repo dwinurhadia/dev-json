@@ -7,6 +7,7 @@
     <title>JSON Sandbox</title>
 </head>
 <body>
+    <ul id="people"></ul>
     <script>
         var person = {
             name : "Brad",
@@ -46,10 +47,13 @@
         console.log(people[1]);
         console.log(people[1].name);
 
+        var output = '';
         for (let i = 0; i < people.length; i++) {
             //const element = people[i];
-            console.log(people[i].name);        
+            //console.log(people[i].name);        
+            output += '<li>'+people[i].name+'</li>';
         }
+        document.getElementById('people').innerHTML = output;
     </script>
 </body>
 </html>
