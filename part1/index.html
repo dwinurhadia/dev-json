@@ -7,7 +7,7 @@
     <title>JSON to TABLE</title>
 </head>
 <body>
-    <table border="1">
+    <table border="1" id="rangkingTable">
         <thead>
             <tr>
                 <th>Ranking</th>
@@ -33,5 +33,28 @@
             </tr>
         </tbody>
     </table>
+    <script type="text/javascript">
+        const rangkingBody = document.querySelector("#rangkingTable > tbody");
+        console.log(rangkingBody);
+
+        function loadRangkings() {
+            const request = new XMLHttpRequest();
+
+            request.open("GET","rangking.json");
+            request.onload = () => {
+                try {
+                    const json = JSON.parse(request.responseText);
+                    populateRangking(json);
+                } catch(e){
+                    console.log("Could not load");
+                }                
+            };
+            request.send();
+        }
+
+        function populateRangking(json) {
+            console.log(json);            
+        }
+    </script>
 </body>
 </html>
