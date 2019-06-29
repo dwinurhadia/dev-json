@@ -24,62 +24,87 @@
     <div id="demo"></div>
     <ul id="people"></ul>    
     <script>
-        var person = {
-            name : "Brad",
-            age : 35,
-            address: {
-                street: "5 main st",
-                city: "boston"
-            },
-            children: ["Briana","Nicholas"]
-        }
+        // var person = {
+        //     name : "Brad",
+        //     age : 35,
+        //     address: {
+        //         street: "5 main st",
+        //         city: "boston"
+        //     },
+        //     children: ["Briana","Nicholas"]
+        // }
 
-        person = JSON.stringify(person);
-        person = JSON.parse(person);
-        console.log(person);
-        console.log(person.name);
-        console.log(person.age);
-        console.log(person.address.street);
-        console.log(person.children[0]);
-        console.log(person.children[1]);
-        // console.log(person.email());
+        // person = JSON.stringify(person);
+        // person = JSON.parse(person);
+        // console.log(person);
+        // console.log(person.name);
+        // console.log(person.age);
+        // console.log(person.address.street);
+        // console.log(person.children[0]);
+        // console.log(person.children[1]);
+        // // console.log(person.email());
 
-        var people = [
-            {
-                name: "Brad",
-                age: 35
-            },
-            {
-                name: "Sara",
-                age: 35
-            },
-            {
-                name: "John",
-                age: 35
-            }
-        ];
+        // var people = [
+        //     {
+        //         name: "Brad",
+        //         age: 35
+        //     },
+        //     {
+        //         name: "Sara",
+        //         age: 35
+        //     },
+        //     {
+        //         name: "John",
+        //         age: 35
+        //     }
+        // ];
 
-        console.log(people[1]);
-        console.log(people[1].name);
+        // console.log(people[1]);
+        // console.log(people[1].name);
 
-        var output = '';
-        for (let i = 0; i < people.length; i++) {
-            //const element = people[i];
-            //console.log(people[i].name);        
-            output += '<li>'+people[i].name+'</li>';
-        }
-        document.getElementById('people').innerHTML = output;
+        // var output = '';
+        // for (let i = 0; i < people.length; i++) {
+        //     //const element = people[i];
+        //     //console.log(people[i].name);        
+        //     output += '<li>'+people[i].name+'</li>';
+        // }
+        // document.getElementById('people').innerHTML = output;
+
+        // var keys = [];
+        // document.write("<table border=1><tr>");
+        // for (key in people[0]) {
+        //     document.write('<td><b>' + key + '</b></td>');
+        // }
+        // document.write("</tr>");
+        // document.write("</table>");    
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
-               document.getElementById("demo").innerHTML = xhttp.responseText;
+            //    document.getElementById("demo").innerHTML = xhttp.responseText;
                 console.log(xhttp.responseText);
                 var response = JSON.parse(xhttp.responseText);
                 var people = response.people;
 
                 //console.log(response.people);
 
+
+                // var key = [];
+                // document.write("<table border==\"1\"><tr>");
+                // for (key in people[0]) {
+                //     document.write('<td><b>' + key + '</b></td>');
+                // }
+                // document.write("</tr>");
+                // for (var i = 0; i < people.length; i++) {
+                //     document.write('<tr>');
+                //     for (key in people[i]) {
+                //         document.write('<td>' + people[i][key] + '</td>');
+                //     }
+                //     document.write('</tr>');
+                // }
+                // document.write("</table>");
+                
+                
                 var output = '';
                 for (let i = 0; i < people.length; i++) {
                     //const element = people[i];
@@ -92,7 +117,7 @@
         xhttp.open("GET","people.json",true);
         xhttp.send();
     </script>
-    <script>
+    <!-- <script>
         var data = [
             {
                 name: "Brad",
@@ -122,6 +147,6 @@
             document.write('</tr>');
         }
         document.write("</table>");
-    </script>
+    </script> -->
 </body>
 </html>
