@@ -41,6 +41,7 @@
             const request = new XMLHttpRequest();
 
             request.open("GET","rangking.json");
+            //request.open("GET","https://basukiheriwinarno.github.io/thingies/race1.json");
             request.onload = () => {
                 try {
                     const json = JSON.parse(request.responseText);
@@ -53,8 +54,25 @@
         }
 
         function populateRangking(json) {
-            console.log(json);            
+            console.log(json);        
+            //clean up data
+            while (rangkingBody.firstChild){
+                rangkingBody.removeChild(rangkingBody.firstChild);
+            }
+
+            //populate data table
+            json.forEach((row) => {
+                //console.log(row);
+                row.forEach((cell) => {
+                    console.log(cell);
+                });
+            });
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadRangkings();
+        });
+
     </script>
 </body>
 </html>
