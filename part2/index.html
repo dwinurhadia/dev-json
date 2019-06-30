@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+    var json = `{
+    "DVD": { "judul": "Lord of the Rings - Trilogy",
+    "penulis": "J.R.R Tolkien",
+    "tahun": 2000, 
+    "tokoh": ["Aragorn", "Legolas", "Gimli"],
+    "genre": "Fantasy Fiction",
+    "harga": { 
+            "C-Shell": "180.000", "Jewel Case": "240.000", "Pirated": "50.000"
+            }
+        } 
+
+    }`;
+
+    var obj = JSON.parse(json);
+    console.log(obj);
+
+    function printValues(obj){
+        for (var i in obj){
+            if (obj[i] instanceof Object) {
+                printValues(obj[i]);
+                document.write("<br>");
+            } else {
+                document.write(obj[i]+"<br>");
+            }
+        }
+    }
+
+    printValues(obj);
+
+    document.write(obj["DVD"]["penulis"]+"<br>");
+    document.write(obj["DVD"]["penulis"]+"<br>");
+    document.write(obj["DVD"]["tokoh"]+"<br>");
+    </script>
+</body>
+</html>
