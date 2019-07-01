@@ -43,8 +43,54 @@ createTag();
 // PART 4
 //REST DAN SPREAD
 signIn = (username, password) => {
-    console.log(username +' punya password '+password)
+   // console.log(username +' punya password '+password)
 }
 
 let data = ['hilman','123']
-signIn(data[0],data[1])
+//signIn(data[0],data[1])
+signIn(...data) //spread dan rest
+
+
+
+// PART 5
+//TEPMPLATE LITERAL
+
+let username = 'hilman'
+let umur = 40
+
+//console.log(username + 'umurnya '+ umur)
+
+//let text = "Member "+username + 'umurnya '+ umur
+let text = `Member ${username} umurnya ${umur}`
+
+let div = `
+    <div> isi div </div>
+    <p> isi tag p </p>
+    `
+//console.log(div)
+
+
+
+// PART 6
+// SHORHAND DAN DESCTURCTING
+
+let name = 'Saputro'
+let age = 40
+
+getData = () => {
+    return `member ${name} umurnya ${age}`
+}
+let member = {
+    name, age, getData
+}
+
+//console.log(member.getData());
+
+let memberr = {
+    names: "Hilman",
+    umurs : 12
+}
+
+let {umurs, names} = memberr
+//console.log(umurs)
+
