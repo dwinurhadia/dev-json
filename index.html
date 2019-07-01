@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JSON Sandbox</title>
     <style>
-        tr:nth-child(even) td {background: #f2f2f2}
+        tr:nth-child(even) td {background: #4c4c4cs}
 
         table{
             border-collapse: collapse;
         }
         table td, table th{
-            border: 1px solid black;
-        text-align: left;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
         }
         table thead{
             background:#ccc;
@@ -22,7 +25,7 @@
 </head>
 <body>
     <div id="demo"></div>
-    <ul id="people"></ul>    
+    <!-- <ul id="people"></ul>     -->
     <script>
         // var person = {
         //     name : "Brad",
@@ -89,32 +92,53 @@
                 //console.log(response.people);
 
 
-                // var key = [];
-                // document.write("<table border==\"1\"><tr>");
-                // for (key in people[0]) {
-                //     document.write('<td><b>' + key + '</b></td>');
-                // }
-                // document.write("</tr>");
-                // for (var i = 0; i < people.length; i++) {
-                //     document.write('<tr>');
-                //     for (key in people[i]) {
-                //         document.write('<td>' + people[i][key] + '</td>');
-                //     }
-                //     document.write('</tr>');
-                // }
-                // document.write("</table>");
-                
-                
-                var output = '';
-                for (let i = 0; i < people.length; i++) {
-                    //const element = people[i];
-                    //console.log(people[i].name);        
-                    output += '<li>'+people[i].name+'</li>';
+                var key = [];
+                document.write("<table border==\"1\"><tr>");
+                for (key in people[0]) {
+                    document.write('<td><b>' + key + '</b></td>');
                 }
-                document.getElementById('people').innerHTML = output;
+                document.write("</tr>");
+                for (var i = 0; i < people.length; i++) {
+                    // document.write('<tr>');
+                    // for (key in people[i]) {
+                    //     document.write('<td>' + people[i][key] + '</td>');
+                    // }
+                    // document.write('</tr>');
+
+                    document.write('<tr>');
+                    for (key in people[i]) {
+                        document.write('<td>' + people[i][key] + '</td>');
+                    }
+                    document.write('</tr>');
+                    
+                    for (key in people[0].abilities) {
+                        document.write('<td><b>' + key + '</b></td>');
+                    }
+                    document.write('<tr>');
+                    for (let a = 0; a < people[i].abilities.satu.length; a++) {
+                                document.write('<td>'+people[i].abilities.satu[a]) + '</td>';
+                    }
+                    document.write('</tr>');
+
+                    document.write('<tr>');
+                    for (let b = 0; b < people[i].abilities.dua.length; b++) {
+                                document.write('<td>'+people[i].abilities.dua[b]) + '</td>';
+                    }
+                    document.write('</tr>');
+                }
+                document.write("</table>");
+                
+                
+                // var output = '';
+                // for (let i = 0; i < people.length; i++) {
+                //     //const element = people[i];
+                //     //console.log(people[i].name);        
+                //     output += '<li>'+people[i].race+'</li>';
+                // }
+                // document.getElementById('people').innerHTML = output;
             }
         }
-        xhttp.open("GET","people.json",true);
+        xhttp.open("GET","film.json",true);
         xhttp.send();
     </script>
     <!-- <script>

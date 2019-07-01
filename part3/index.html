@@ -7,6 +7,106 @@
     <title>JSON 3</title>
 </head>
 <body>
-    <button id="btn">Click</button>
+    <!-- <button id="btn">Click</button> -->
+    <!-- <div id="keterangan"></div> -->
+    <table border="1" id="keterangan">
+        <thead>
+            <tr>
+                    <td>No</td>
+                    <td>Indi</td>
+                    <td>Tiga</td>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr>
+                    <td>hello1</td>
+                    <td>hello2</td>
+                    <td>hello3</td>
+            </tr>
+            <script>
+                var people = [
+    {
+        "race": "Argonians",
+        "advantage": "start with 25 in Lockpicking",
+        "abilities": {
+            "satu": ["Histskin", "Invoke the power of the Hist to recover health ten times faster for 60 seconds."],
+            "dua": ["Resist Disease", "Your Argonian blood is 50 percent resistant to disease."]
+        }
+    },
+    {
+        "race": "Bretons",
+        "advantage": "start with 25 in Conjuration",
+        "abilities": {
+            "satu": ["Dragonskin", "Absorb 50 percent of magicka from hostile spells for 60 seconds."],
+            "dua": ["Magic Resistance", "Breton blood grants a 25 percent resistance to magic."]
+        }
+    },
+    {
+        "race": "Dark Elf - Dunmer",
+        "advantage": "start with 25 in Destruction",
+        "abilities": {
+            "satu": ["Ancestor’s Wrath", "For 60 seconds, opponents that get too close take 8 points per second of fire damage."],
+            "dua": ["Resist Fire", "Your Dunmer blood gives you 50 percent resistance to fire."]
+        }
+    }
+]
+            // var btna = document.getElementById("btn");
+            var ket = document.getElementById("keterangan");
+            var halaman = 1;
+
+            function tampilData(data){
+                var stringbaru = "";
+                console.log(data);
+                for (i = 0; i< data.length; i++){
+                    //stringbaru += "<tr>" + data[i].race + " / "+ data[i].advantage + "</tr>";
+                    stringbaru += "<td>" + data[i].race + "</td>";
+                    console.log(stringbaru);
+                    // document.write("<tr>");
+
+                    // document.write("</tr>");
+                    // for (j = 0; j< data[i].abilities.satu.length; j++){
+                    //     if (j==0){
+                    //         stringbaru += "<tr> -> <b>" + data[i].abilities.satu[j]+ "</b>";
+                    //     } else {
+                    //         stringbaru += " / " + data[i].abilities.satu[j] + "</tr>";
+                    //     }
+                    // }
+                    // for (k = 0; k< data[i].abilities.dua.length; k++){
+                    //     if (k==0){
+                    //         stringbaru += "<p> -> <b>" + data[i].abilities.dua[k]+ "</b>";
+                    //     } else {
+                    //         stringbaru += " / " + data[i].abilities.dua[k] + "</p>";
+                    //     }
+                    // }
+                }
+                ket.insertAdjacentHTML('beforebegin', stringbaru);
+            }
+
+            var requestnya = new XMLHttpRequest();
+            requestnya.open('GET','https://basukiheriwinarno.github.io/thingies/race' + halaman + '.json');
+            requestnya.onload = function(){
+                var datanya = JSON.parse(requestnya.responseText);
+                tampilData(datanya);
+            };
+            requestnya.send();
+
+    // btna.addEventListener("click", function(){
+    //     var requestnya = new XMLHttpRequest();
+    //     requestnya.open('GET','https://basukiheriwinarno.github.io/thingies/race' + halaman + '.json');
+
+    //     requestnya.onload = function(){
+    //         var datanya = JSON.parse(requestnya.responseText);
+    //         tampilData(datanya);
+    //     };
+    //     requestnya.send();
+    //     halaman++;
+    //     if (halaman>3) {
+    //         btna.disabled = true;
+    //     }
+    // });
+        </script>
+        </tbody>
+</table>
+
 </body>
 </html>
