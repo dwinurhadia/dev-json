@@ -94,3 +94,12 @@ let memberr = {
 let {umurs, names} = memberr
 //console.log(umurs)
 
+class Members {
+    constructor(name,umur){
+        this.name = name
+        this.umur = umur
+    }
+}
+
+let anggota = new Members('Hilman',23)
+console.log(anggota)
