@@ -24,17 +24,27 @@ let sekolahKoding = {
 //console.log(sekolahKoding.getMember());
 // =================================== //
 // PART 3
-
+//tambahkan generator untuk judul sebagai default
 generateTitle = () => {
     return 'Ini judul standar'
 }
-createTag = (title, tag) => {
+createTag = (title = generateTitle(), tag = 'bebas') => {
     tag = tag || 'CSS' //memberikan nilai default tag
 
     if (typeof tag === 'undefined'){
         tag = 'css'
     }
-    console.log('Forum '+title+' punya tag '+tag)
+  //  console.log('Forum '+title+' punya tag '+tag)
 }
 
-createTag('tampilan rusak');
+createTag();
+
+
+// PART 4
+//REST DAN SPREAD
+signIn = (username, password) => {
+    console.log(username +' punya password '+password)
+}
+
+let data = ['hilman','123']
+signIn(data[0],data[1])
