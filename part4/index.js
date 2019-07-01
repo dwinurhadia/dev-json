@@ -13,7 +13,7 @@ let sekolahKoding = {
     members :
      ['rizki','dodi','quieser'],
     getMember(){
-        this.members.map(function(name){
+        this.members.map((name) => {
             console.log(this);
         });
     }
